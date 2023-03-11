@@ -1,0 +1,35 @@
+#header{
+    background: #FFFFFF;
+    height: 100px;
+    .container{
+        .header{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            .logo{
+                font-weight: 700;
+
+            }
+            .navbar{
+                display: flex;
+                gap: 52px;
+                align-items: center;
+                &--a{
+                    text-decoration: none;
+                    font-family: 'Montserrat',sans-serif;
+                    font-style: normal;
+                    font-weight: 500;
+                    font-size: 24px;
+                    line-height: 29px;
+                    color: #000000;
+                   cursor: pointer;
+
+                }
+                &--a:hover{
+                    color: #BD1D1D;
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+}

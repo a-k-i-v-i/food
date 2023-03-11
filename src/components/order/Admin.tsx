@@ -1,48 +1,34 @@
-import { FormEvent, useState } from "react"
 import { useTypedDispatch } from "../../hooks/useDispatch";
-import uniqid from 'uniqid';
+import { useTypedSelector } from "../../hooks/useSelector";
 
 
-
-const Order = ()=>{
-    const fileReader =new FileReader()
-
-    const {addToProduct} = useTypedDispatch()
-    const [fileUrl, setFileUrl] = useState<ArrayBuffer | null | string>('')
-    const [value, setValue] = useState<any>({
-        name : '',
-        price : '',
-        img:fileUrl,
-        id : uniqid()
-    })
-    fileReader.onloadend  = ()=>{
-        setFileUrl(fileReader.result)
-    }
-    const getValue  = (e: any)=>{
-        setValue({...value, [e.target.name] : e.target.value})
-    }
-    
-  
-    const handleSubmit = (event:any)=>{
-        event.preventDefault()
-    }
-
-    const handleChangeUrl = (e: React.ChangeEvent<any>)=>{
-        fileReader.readAsDataURL(e.target.files[0])
-    }
-console.log(fileUrl);
-
+const Admin = ()=>{
+    const {order} = useTypedSelector((s)=> s.product)
+    const {increaseQ} = useTypedDispatch()
+    const {decreaseQ} = useTypedDispatch()
+    const {deleteFromOrder} = useTypedDispatch()
+    console.log(order);
     return(
-        <div>
-            <h1>CREATE PRODUCT</h1>
-           <form onSubmit={handleSubmit} action="">
-           <input onChange={handleChangeUrl} type="file" />
-            <input onChange={getValue} name="name"  type="text"  placeholder="food name"/>
-            <input onChange={getValue} name="price" type="text"  placeholder="price"/>
-            <button onClick={()=> addToProduct({...value, img: fileUrl})}>CREATE</button>
-           </form>
-        </div>
+        <section id="order">
+           <div className="container">
+            <div className="order">
+            {
+                order.map((el)=> (
+                    <div className="order">
+                        <img src={el.img} alt="" />
+                        <h1>{el.name}</h1>
+                        <h2>{el.price}</h2>
+                        <span onClick={()=> decreaseQ(el.id)}> - </span>
+                        <h3>QUANTITY: {el.quantity}</h3>
+                        <span onClick={()=> increaseQ(el.id)}> + </span>
+                        <button onClick={()=> deleteFromOrder(el)}>DELETE ORDER</button>
+                    </div>
+                ))
+            }
+            </div>
+           </div>
+        </section>
     )
 }
 
-export default Order
+export default Admin
