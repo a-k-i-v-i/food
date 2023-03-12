@@ -22,7 +22,7 @@ console.log(product);
             {
                 product.map((el)=> (
                    <div>
-                    <img src={ el.img} alt="" />
+                    <img src={ el.img} width={300} alt="" />
                     <h1>{el.name}</h1>
                     <h2>{el.price}</h2>
                     <button onClick={()=> orderBtn(el)}>TO ORDER</button>

@@ -1,5 +1,6 @@
 #admin{
     background: #95B9C9;
+    height: 100vh;
     .container{
         .admin{
             &--title{
@@ -20,10 +21,13 @@
             form{
                 display: flex;
                 flex-direction: column;
+                gap: 30px;
                 .file--input{
+                    outline: none;
                     padding-top: 20px;
+                    padding: 0 10px;
                     width: 365px;
-                    height: 67px;
+                    height: 57px;
                     background: #D9D9D9;
                     border-radius: 10px;
                     font-family: 'Montserrat', sans-serif;
@@ -32,17 +36,18 @@
                     font-size: 24px;
                     line-height: 29px;
                     letter-spacing: 0.1em;
-
+border: none;
                     color: #000000;
 
                 }
 
                 .name--input{
-
+                    outline: none;
+                    padding: 0 10px;
                     background: #D9D9D9;
                     border-radius: 10px;
                     width: 549px;
-                    height: 67px;
+                    height: 57px;
                     font-family: 'Montserrat';
                     font-style: normal;
                     font-weight: 500;
@@ -52,8 +57,15 @@
 
                     color: #000000;
 
-                    opacity: 0.3;
+                    border: none;
                 }
+              .form--btn{
+                width: 200px;
+                height: 30px;
+                background: #D9D9D9;
+                border-radius: 10px;
+                border: none;
+              }
             }
         }
     }

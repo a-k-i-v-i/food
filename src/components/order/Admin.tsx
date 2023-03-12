@@ -1,9 +1,11 @@
 import { useState } from "react";
 import { useTypedDispatch } from "../../hooks/useDispatch";
 import uniqid from "uniqid";
+import { useTypedSelector } from "../../hooks/useSelector";
 
 const Order = () => {
   const fileReader = new FileReader();
+  const {product} = useTypedSelector((s)=> s.product)
 
   const { addToProduct } = useTypedDispatch();
   const [fileUrl, setFileUrl] = useState<ArrayBuffer | null | string>("");
@@ -46,7 +48,7 @@ const Order = () => {
               placeholder="food--name"
             />
             <input
-            className="price--input"
+            className="name--input"
               onChange={getValue}
               name="price"
               type="text"
@@ -58,6 +60,16 @@ const Order = () => {
               CREATE
             </button>
           </form>
+          <div>
+          {
+                product.map((el)=> (
+                   <div>
+                    <img src={ el.img} width={300} alt="" />
+                   </div>
+                ))
+            }
+    
+          </div>
         </div>
       </div>
     </section>
