@@ -1,8 +1,59 @@
-#order{
+#admin{
+    background: #95B9C9;
     .container{
-        .order{
-            &--map{
-                
+        .admin{
+            &--title{
+                text-align: center;
+                font-family: 'Montserrat',sans-serif;
+                font-style: normal;
+                font-weight: 500;
+                font-size: 32px;
+                line-height: 39px;
+                /* identical to box height */
+
+                letter-spacing: 0.1em;
+
+                color: #33332D;
+
+                mix-blend-mode: normal;
+            }
+            form{
+                display: flex;
+                flex-direction: column;
+                .file--input{
+                    padding-top: 20px;
+                    width: 365px;
+                    height: 67px;
+                    background: #D9D9D9;
+                    border-radius: 10px;
+                    font-family: 'Montserrat', sans-serif;
+                    font-style: normal;
+                    font-weight: 500;
+                    font-size: 24px;
+                    line-height: 29px;
+                    letter-spacing: 0.1em;
+
+                    color: #000000;
+
+                }
+
+                .name--input{
+
+                    background: #D9D9D9;
+                    border-radius: 10px;
+                    width: 549px;
+                    height: 67px;
+                    font-family: 'Montserrat';
+                    font-style: normal;
+                    font-weight: 500;
+                    font-size: 24px;
+                    line-height: 29px;
+                    letter-spacing: 0.1em;
+
+                    color: #000000;
+
+                    opacity: 0.3;
+                }
             }
         }
     }
